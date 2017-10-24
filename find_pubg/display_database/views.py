@@ -9,12 +9,12 @@ from django.template import loader
 
 # Create your views here.
 
-def display_users(request):
-	return HttpResponse("Welcome to the user board")
+def index(request):
+	return HttpResponse("Welcome to FindPUBG")
 
-def board_info(request):
+def user_board(request):
 	lst = User.objects.all()
-	template = loader.get_template('display_database/board_info.html')
+	template = loader.get_template('display_database/user_board.html')
 	context = {
 		'lst' : lst,
 	}

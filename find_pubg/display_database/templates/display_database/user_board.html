@@ -1,4 +1,5 @@
 {% if lst %}
+	<h1> Welcome to the User Board</h1>
 	<ul>
 	{% for user in lst %}
 		<li><a href="/display_database/{{ user.user_id }}/user_page"> User: {{user.user_id }} </a> </li>
