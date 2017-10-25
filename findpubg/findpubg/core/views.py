@@ -41,6 +41,29 @@ def search_survey(request):
         form = SearchForm()
     return render(request, 'search.html', {'form': form})
 
+def sort_search_by_date_joined(request):
+	most_recent_joined = Search.objects.order_by('-date_joined')
+	template = loader.get_template('user_board.html')
+	context = {
+		'lst' : most_recent_joined,
+	}
+	return HttpResponse(template.render(context, request))
+
+def sort_by_team_preference(request):
+	ordered_team_preferences = Search.objects.order_by('team_choices')
+	template = loader.get_template('user_board.html')
+	context = {
+		'lst' : ordered_team_preferences,
+	}
+	return HttpResponse(template.render(context, request))
+
+def sort_by_region_preference(request):
+	ordered_region_preferences = Search.objects.order_by('region_choices')
+	template = loader.get_template('user_board.html')
+	context = {
+		'lst' : ordered_region_preferences,
+	}
+	return HttpResponse(template.render(context, request))
 
 def signup(request):
     if request.method == 'POST':

@@ -12,4 +12,7 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'next_page': 'login'}, name='logout'),
     url(r'^signup/$', core_views.signup, name='signup'),
     url(r'^search/$', core_views.search_survey, name='search'),
+	url(r'^user_board/sort_by_date_joined/$', core_views.sort_search_by_date_joined, name='sort_by_date_joined'),
+	url(r'^user_board/sort_by_region_preference/$', core_views.sort_by_region_preference, name='sort_by_region_preference'),
+	url(r'^user_board/sort_by_team_preference/$', core_views.sort_by_team_preference, name='sort_by_team_preference'),
 ]

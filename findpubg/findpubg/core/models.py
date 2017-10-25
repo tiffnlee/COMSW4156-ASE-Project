@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.utils import timezone
 
 TEAM_CHOICES = (
     ('DUOS', 'DUOS'),
@@ -25,10 +26,11 @@ REGION_CHOICES = (
 class Search(models.Model):
     user_id = models.CharField(max_length=20)
     steam_id = models.CharField(max_length=20)
-    team_choices = models.CharField(max_length=10, choices=TEAM_CHOICES)
-    region_choices = models.CharField(max_length=5, choices=REGION_CHOICES)
+    team_choices = models.CharField('team preference', max_length=10, choices=TEAM_CHOICES)
+    region_choices = models.CharField('region preference', max_length=5, choices=REGION_CHOICES)
     email = models.CharField(max_length=40)
     has_profile = models.BooleanField(default=False)
+    date_joined = models.DateTimeField('date joined', default=timezone.now())	
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

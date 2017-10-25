@@ -1,5 +1,9 @@
 {% if lst %}
 	<h1>User Board</h1>
+	<a href="/user_board/"> Default View </a> <br>
+	<a href="/user_board/sort_by_date_joined/"> Sort by date joined (most recent to least recent)</a> <br>
+	<a href="/user_board/sort_by_region_preference/"> Sort users by their region preference </a><br>
+	<a href="/user_board/sort_by_team_preference/"> Sort users by their team preference </a><br>
 	<ul>
 	{% for user in lst %}
 		<li><a href="/{{ user.user_id }}/user_page"> User: {{user.user_id}} </a> <br>
