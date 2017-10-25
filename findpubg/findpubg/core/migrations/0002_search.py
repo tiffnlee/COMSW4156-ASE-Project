@@ -10,11 +10,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-<<<<<<< HEAD:find_pubg/display_database/migrations/0001_initial.py
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-=======
         ('core', '0001_initial'),
->>>>>>> completely redid the code:findpubg/findpubg/core/migrations/0002_search.py
     ]
 
     operations = [
