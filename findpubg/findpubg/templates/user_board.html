@@ -1,0 +1,12 @@
+{% if lst %}
+	<h1>User Board</h1>
+	<ul>
+	{% for user in lst %}
+		<li><a href="/{{ user.user_id }}/user_page"> User: {{user.user_id}} </a> <br>
+        Team Preference: {{user.team_choices}}<br>
+        Region: {{user.region_choices}}</li>
+	{% endfor %}
+	</ul>
+	{% else %}
+		<p> No User Data Available </p>
+{% endif %}

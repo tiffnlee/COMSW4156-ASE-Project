@@ -1,0 +1,44 @@
+from __future__ import unicode_literals
+
+from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+TEAM_CHOICES = (
+    ('DUOS', 'DUOS'),
+    ('SQUADS', 'SQUADS'),
+    ('DUOS FPS', 'DUOS FPS'),
+    ('SQUADS FPS', 'SQUADS FPS')
+)
+
+REGION_CHOICES = (
+    ('NA', 'North America'),
+    ('EU', 'Europe'),
+    ('AS', 'Asian'),
+    ('OC', 'Oceania'),
+    ('SA', 'South America'),
+    ('SEA', 'South East Asia'),
+    ('KR/JP', 'Korea/Japan')
+)
+
+class Search(models.Model):
+    user_id = models.CharField(max_length=20)
+    steam_id = models.CharField(max_length=20)
+    team_choices = models.CharField(max_length=10, choices=TEAM_CHOICES)
+    region_choices = models.CharField(max_length=5, choices=REGION_CHOICES)
+    email = models.CharField(max_length=40)
+    has_profile = models.BooleanField(default=False)
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.TextField(max_length=500, blank=True)
+    location = models.CharField(max_length=30, blank=True)
+    birth_date = models.DateField(null=True, blank=True)
+
+
+@receiver(post_save, sender=User)
+def update_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+    instance.profile.save()
