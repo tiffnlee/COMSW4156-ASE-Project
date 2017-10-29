@@ -8,8 +8,10 @@ from findpubg.core.forms import SignUpForm
 from findpubg.core.forms import SearchForm
 from findpubg.core.models import Search
 
+def start(request):
+    return render(request, 'start.html')
 
-@login_required
+# @login_required
 def home(request):
     return render(request, 'home.html')
 
@@ -22,14 +24,12 @@ def user_board(request):
 	return HttpResponse(template.render(context, request))
 
 def user_page(request, user_id):
-	form= Search.objects.get(user_id = user_id)
-	response = ("UserId: %s <br> "
-                "SteamId: %s <br> "
-                "Email: %s <br> "
-                "Team Preferences: %s <br> "
-                "Region: %s <br> ")
-	return HttpResponse(response % (form.user_id, form.steam_id,form.email,
-                                    form.team_choices, form.region_choices))
+    template = loader.get_template('user_page.html')
+    form = Search.objects.get(user_id = user_id)
+    form = {
+		'form' : form,
+	}
+    return HttpResponse(template.render(form,request))
 
 def search_survey(request):
     if request.method == 'POST':

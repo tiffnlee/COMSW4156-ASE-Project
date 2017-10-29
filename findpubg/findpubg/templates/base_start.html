@@ -1,0 +1,22 @@
+{% extends 'header.html' %}
+
+{% block template %}
+    <header class="masthead">
+      <div class="intro-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h1 class="brand-heading">Find PUBG</h1>
+              <h2 class="intro-text">Because having noobs for teammates suck!</h2>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-lg-8 mx-auto">
+                  {% block content %}
+                  {% endblock %}
+              </div>
+          </div>
+        </div>
+      </div>
+    </header>
+{% endblock %}

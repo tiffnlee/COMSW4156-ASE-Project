@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<div class="card">
+		<div class="card-block">
+		  <h2 class="card-title" style="color:black;"> {{form.user_id}} </h2>
+		  <p class="card-text" style="color:gray;">
+			  <b>Steam ID:</b>
+			  {{form.stream_id}} <br>
+			  <b>Email:</b>
+			  {{form.email}} <br>
+			  <b>Team Preference:</b>
+			  {{form.team_choices}} <br>
+			  <b>Team Region:</b>
+			  {{form.region_choices}} <br>
+		  </p>
+		</div>
+	</div>
+
+{% endblock %}
