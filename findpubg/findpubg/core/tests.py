@@ -1,6 +1,7 @@
 from django.utils import timezone
 from django.test import TestCase
 from .models import Search
+from .forms import SearchForm
 
 # Create your tests here.
 class SearchModelTest(TestCase):
@@ -21,3 +22,24 @@ class SearchModelTest(TestCase):
 		
 		ordered_team_preferences = Search.objects.order_by('team_choices')
 		self.assertTrue(ordered_team_preferences[0].team_choices == 'TeamA')
+
+class SearchFormTest(TestCase):
+	def test_SearchForm_valid(self):
+		form1 = SearchForm(data={'user_id': "sampleuser", 'steam_id': "sampleid", 'team_choices': "DUOS", 'region_choices': "NA", 'email': "test@test.com"})
+		self.assertTrue(form1.is_valid())
+
+	def test_SearchForm_userid_invalid(self):
+		form1 = SearchForm(data={'user_id': "sample>>user", 'steam_id': "sampleid", 'team_choices': "DUOS", 'region_choices': "NA", 'email': "test@test.com"})
+		self.assertTrue(form1.is_valid())
+
+	def test_SearchForm_choices_invalid(self):
+		form1 = SearchForm(data={'user_id': "sampleuser", 'steam_id': "sampleid", 'team_choices': "LOL", 'region_choices': "NA", 'email': "test@test.com"})
+		form2 = SearchForm(data={'user_id': "sampleuser", 'steam_id': "sampleid", 'team_choices': "DUOS", 'region_choices': "LOL",'email': "test@test.com"})
+		self.assertFalse(form1.is_valid())
+		self.assertFalse(form2.is_valid())
+
+	def test_SearchForm_email_invalid(self):
+		form1 = SearchForm(data={'user_id': "sampleuser", 'steam_id': "sampleid", 'team_choices': "DUOS", 'region_choices': "NA", 'email': "bademail"})
+		form2 = SearchForm(data={'user_id': "sampleuser", 'steam_id': "sampleid", 'team_choices': "DUOS", 'region_choices': "NA", 'email': "bademail@bad"})
+		self.assertFalse(form1.is_valid())
+		self.assertFalse(form2.is_valid())
