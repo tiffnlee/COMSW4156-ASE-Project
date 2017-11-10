@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	{% if lst %}
+		<h1>User Board</h1>
+		<div class="row">
+			<div class="col-sm-12 col-md-4 col-lg-3 mt-4">
+				<a href="/user_board/"> Default View </a> <br>
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-3 mt-4">
+				<a href="/user_board/sort_by_date_joined/"> Sort by date joined date</a>
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-3 mt-4">
+				<a href="/user_board/sort_by_region_preference/"> Sort users by their region preference </a>
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-3 mt-4">
+				<a href="/user_board/sort_by_team_preference/"> Sort users by their team preference </a>
+			</div>
+		</div>
+
+		<div class="card-deck">
+			{% for user in lst %}
+			<div class="col-sm-12 col-md-4 col-lg-6 mt-4">
+				<div class="card">
+				    <div class="card-block">
+				      <a class="card-title" href="/{{ user.user_id }}/user_page"> User: {{user.user_id}} </a> <br>
+				      <p class="card-text" style="color:gray;">
+						  <b>Team Preference:</b>
+						  {{user.team_choices}} <br>
+						  <b>Team Region:</b>
+						  {{user.region_choices}} <br>
+					  </p>
+				    </div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		{% else %}
+			<p> No User Data Available </p>
+	{% endif %}
+{% endblock %}
