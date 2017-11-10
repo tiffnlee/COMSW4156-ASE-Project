@@ -30,7 +30,7 @@ class SearchFormTest(TestCase):
 
 	def test_SearchForm_userid_invalid(self):
 		form1 = SearchForm(data={'user_id': "sample>>user", 'steam_id': "sampleid", 'team_choices': "DUOS", 'region_choices': "NA", 'email': "test@test.com"})
-		self.assertTrue(form1.is_valid())
+		self.assertFalse(form1.is_valid())
 
 	def test_SearchForm_choices_invalid(self):
 		form1 = SearchForm(data={'user_id': "sampleuser", 'steam_id': "sampleid", 'team_choices': "LOL", 'region_choices': "NA", 'email': "test@test.com"})

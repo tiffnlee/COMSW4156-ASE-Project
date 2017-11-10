@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils import timezone
+from django.core.validators import RegexValidator
+
 import datetime
 
 TEAM_CHOICES = (
@@ -25,7 +27,8 @@ REGION_CHOICES = (
 )
 
 class Search(models.Model):
-    user_id = models.CharField(max_length=20)
+    alphanumeric = RegexValidator('^[A-Za-z0-9]+$', message="Password should be a combination of Alphabets and Numbers")
+    user_id = models.CharField(max_length=20, validators=[alphanumeric])
     steam_id = models.CharField(max_length=20)
     team_choices = models.CharField('team preference', max_length=10, choices=TEAM_CHOICES)
     region_choices = models.CharField('region preference', max_length=5, choices=REGION_CHOICES)
