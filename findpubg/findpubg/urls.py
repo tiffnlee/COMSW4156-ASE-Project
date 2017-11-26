@@ -1,5 +1,9 @@
+
 from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
+from machina.app import board
 
 from findpubg.core import views as core_views
 
@@ -15,4 +19,6 @@ urlpatterns = [
 	url(r'^user_board/sort_by_date_joined/$', core_views.sort_search_by_date_joined, name='sort_by_date_joined'),
 	url(r'^user_board/sort_by_region_preference/$', core_views.sort_by_region_preference, name='sort_by_region_preference'),
 	url(r'^user_board/sort_by_team_preference/$', core_views.sort_by_team_preference, name='sort_by_team_preference'),
-]
+    # Apps
+    url(r'^forum/', include(board.urls)),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
