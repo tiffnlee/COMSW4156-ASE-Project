@@ -1,0 +1,136 @@
+************* Module findpubg.settings
+C:  1, 0: Missing module docstring (missing-docstring)
+E:  3, 0: Unable to import 'machina' (import-error)
+E:  4, 0: Unable to import 'machina' (import-error)
+E:  5, 0: Unable to import 'machina' (import-error)
+************* Module findpubg.urls
+C: 21, 0: Wrong hanging indentation (add 3 spaces).
+	url(r'^user_board/sort_by_date_joined/$', core_views.sort_search_by_date_joined, name='sort_by_date_joined'),
+ ^  | (bad-continuation)
+C: 21, 0: Line too long (110/100) (line-too-long)
+C: 22, 0: Wrong hanging indentation (add 3 spaces).
+	url(r'^user_board/sort_by_region_preference/$', core_views.sort_by_region_preference, name='sort_by_region_preference'),
+ ^  | (bad-continuation)
+C: 22, 0: Line too long (121/100) (line-too-long)
+C: 23, 0: Wrong hanging indentation (add 3 spaces).
+	url(r'^admin/', include(admin.site.urls)),
+ ^  | (bad-continuation)
+C: 24, 0: Wrong hanging indentation (add 3 spaces).
+	url(r'^user_board/sort_by_team_preference/$', core_views.sort_by_team_preference, name='sort_by_team_preference'),
+ ^  | (bad-continuation)
+C: 24, 0: Line too long (115/100) (line-too-long)
+C:  1, 0: Missing module docstring (missing-docstring)
+E:  5, 0: Unable to import 'machina.app' (import-error)
+C:  9, 0: Imports from package django are not grouped (ungrouped-imports)
+************* Module findpubg.wsgi
+C: 16, 0: Invalid constant name "application" (invalid-name)
+************* Module findpubg.core.apps
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  6, 0: Missing class docstring (missing-docstring)
+************* Module findpubg.core.forms
+C: 33, 0: Final newline missing (missing-final-newline)
+C:  1, 0: Missing module docstring (missing-docstring)
+C: 23, 0: Missing class docstring (missing-docstring)
+C: 30, 0: Missing class docstring (missing-docstring)
+************* Module findpubg.core.models
+C: 33, 0: Trailing whitespace (trailing-whitespace)
+C:  1, 0: Missing module docstring (missing-docstring)
+C: 26, 0: Missing class docstring (missing-docstring)
+W: 26, 0: No __unicode__ method on model (Search) (model-missing-unicode)
+C: 35, 0: Missing class docstring (missing-docstring)
+W: 35, 0: No __unicode__ method on model (Profile) (model-missing-unicode)
+C: 43, 0: Missing function docstring (missing-docstring)
+W: 43,24: Unused argument 'sender' (unused-argument)
+W: 43, 0: Unused argument 'kwargs' (unused-argument)
+************* Module findpubg.core.tests
+C:  1, 0: Missing module docstring (missing-docstring)
+W:  1, 0: Unused TestCase imported from django.test (unused-import)
+************* Module findpubg.core.views
+W: 19, 0: Found indentation with tabs instead of spaces (mixed-indentation)
+W: 20, 0: Found indentation with tabs instead of spaces (mixed-indentation)
+W: 21, 0: Found indentation with tabs instead of spaces (mixed-indentation)
+C: 22, 0: Wrong hanging indentation (add 10 spaces).
+		'lst' : lst,
+  ^         | (bad-continuation)
+C: 23, 0: Wrong hanging indentation.
+	}
+ ^      |   | (bad-continuation)
+W: 24, 0: Found indentation with tabs instead of spaces (mixed-indentation)
+C: 28, 0: No space allowed around keyword argument assignment
+    form = Search.objects.get(user_id = user_id)
+                                      ^ (bad-whitespace)
+C: 30, 0: Wrong hanging indentation (add 6 spaces).
+		'form' : form,
+  ^     | (bad-continuation)
+C: 31, 0: Wrong hanging indentation.
+	}
+ ^  |   | (bad-continuation)
+C: 32, 0: Exactly one space required after comma
+    return HttpResponse(template.render(form,request))
+                                            ^ (bad-whitespace)
+W: 45, 0: Found indentation with tabs instead of spaces (mixed-indentation)
+W: 46, 0: Found indentation with tabs instead of spaces (mixed-indentation)
+W: 47, 0: Found indentation with tabs instead of spaces (mixed-indentation)
+C: 48, 0: Wrong hanging indentation (add 10 spaces).
+		'lst' : most_recent_joined,
+  ^         | (bad-continuation)
+C: 49, 0: Wrong hanging indentation.
+	}
+ ^      |   | (bad-continuation)
+W: 50, 0: Found indentation with tabs instead of spaces (mixed-indentation)
+W: 53, 0: Found indentation with tabs instead of spaces (mixed-indentation)
+W: 54, 0: Found indentation with tabs instead of spaces (mixed-indentation)
+W: 55, 0: Found indentation with tabs instead of spaces (mixed-indentation)
+C: 56, 0: Wrong hanging indentation (add 10 spaces).
+		'lst' : ordered_team_preferences,
+  ^         | (bad-continuation)
+C: 57, 0: Wrong hanging indentation.
+	}
+ ^      |   | (bad-continuation)
+W: 58, 0: Found indentation with tabs instead of spaces (mixed-indentation)
+W: 61, 0: Found indentation with tabs instead of spaces (mixed-indentation)
+W: 62, 0: Found indentation with tabs instead of spaces (mixed-indentation)
+W: 63, 0: Found indentation with tabs instead of spaces (mixed-indentation)
+C: 64, 0: Wrong hanging indentation (add 10 spaces).
+		'lst' : ordered_region_preferences,
+  ^         | (bad-continuation)
+C: 65, 0: Wrong hanging indentation.
+	}
+ ^      |   | (bad-continuation)
+W: 66, 0: Found indentation with tabs instead of spaces (mixed-indentation)
+C:  1, 0: Missing module docstring (missing-docstring)
+C: 11, 0: Missing function docstring (missing-docstring)
+C: 15, 0: Missing function docstring (missing-docstring)
+C: 18, 0: Missing function docstring (missing-docstring)
+C: 26, 0: Missing function docstring (missing-docstring)
+C: 34, 0: Missing function docstring (missing-docstring)
+C: 44, 0: Missing function docstring (missing-docstring)
+C: 52, 0: Missing function docstring (missing-docstring)
+C: 60, 0: Missing function docstring (missing-docstring)
+C: 68, 0: Missing function docstring (missing-docstring)
+W:  1, 0: Unused login_required imported from django.contrib.auth.decorators (unused-import)
+************* Module findpubg.core.__init__
+R:  1, 0: Similar lines in 2 files
+==findpubg.core.forms:5
+==findpubg.core.models:8
+TEAM_CHOICES = (
+    ('DUOS', 'DUOS'),
+    ('SQUADS', 'SQUADS'),
+    ('DUOS FPS', 'DUOS FPS'),
+    ('SQUADS FPS', 'SQUADS FPS')
+)
+
+REGION_CHOICES = (
+    ('NA', 'North America'),
+    ('EU', 'Europe'),
+    ('AS', 'Asian'),
+    ('OC', 'Oceania'),
+    ('SA', 'South America'),
+    ('SEA', 'South East Asia'),
+    ('KR/JP', 'Korea/Japan')
+)
+ (duplicate-code)
+
+------------------------------------------------------------------
+Your code has been rated at 3.89/10 (previous run: 3.89/10, +0.00)
+
