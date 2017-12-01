@@ -30,7 +30,7 @@ class Search(models.Model):
     region_choices = models.CharField('region preference', max_length=5, choices=REGION_CHOICES)
     email = models.CharField(max_length=40)
     has_profile = models.BooleanField(default=False)
-    date_joined = models.DateTimeField('date joined', default=timezone.now())	
+    date_joined = models.DateTimeField('date joined', default=timezone.now)
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
