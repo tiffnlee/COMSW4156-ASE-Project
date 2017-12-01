@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'findpubg.wsgi.application'
+WSGI_APPLICATION = 'findpubg.wsgi.wsgi_application'
 
 
 # Database

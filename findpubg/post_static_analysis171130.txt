@@ -1,0 +1,61 @@
+************* Module findpubg.settings
+C:  1, 0: Missing module docstring (missing-docstring)
+E:  3, 0: Unable to import 'machina' (import-error)
+E:  4, 0: Unable to import 'machina' (import-error)
+E:  5, 0: Unable to import 'machina' (import-error)
+************* Module findpubg.urls
+E: 21, 0: invalid syntax (<string>, line 21) (syntax-error)
+************* Module findpubg.wsgi
+C: 16, 0: Invalid constant name "wsgi_application" (invalid-name)
+************* Module findpubg.core.apps
+C:  1, 0: Missing module docstring (missing-docstring)
+C:  6, 0: Missing class docstring (missing-docstring)
+************* Module findpubg.core.forms
+C:  1, 0: Missing module docstring (missing-docstring)
+C: 23, 0: Missing class docstring (missing-docstring)
+C: 30, 0: Missing class docstring (missing-docstring)
+************* Module findpubg.core.models
+C:  1, 0: Missing module docstring (missing-docstring)
+C: 26, 0: Missing class docstring (missing-docstring)
+W: 26, 0: No __unicode__ method on model (Search) (model-missing-unicode)
+C: 35, 0: Missing class docstring (missing-docstring)
+W: 35, 0: No __unicode__ method on model (Profile) (model-missing-unicode)
+C: 43, 0: Missing function docstring (missing-docstring)
+W: 43,24: Unused argument 'sender' (unused-argument)
+W: 43, 0: Unused argument 'kwargs' (unused-argument)
+************* Module findpubg.core.views
+C:  1, 0: Missing module docstring (missing-docstring)
+C: 11, 0: Missing function docstring (missing-docstring)
+C: 15, 0: Missing function docstring (missing-docstring)
+C: 18, 0: Missing function docstring (missing-docstring)
+C: 26, 0: Missing function docstring (missing-docstring)
+C: 34, 0: Missing function docstring (missing-docstring)
+C: 44, 0: Missing function docstring (missing-docstring)
+C: 52, 0: Missing function docstring (missing-docstring)
+C: 60, 0: Missing function docstring (missing-docstring)
+C: 68, 0: Missing function docstring (missing-docstring)
+************* Module findpubg.core.__init__
+R:  1, 0: Similar lines in 2 files
+==findpubg.core.forms:5
+==findpubg.core.models:8
+TEAM_CHOICES = (
+    ('DUOS', 'DUOS'),
+    ('SQUADS', 'SQUADS'),
+    ('DUOS FPS', 'DUOS FPS'),
+    ('SQUADS FPS', 'SQUADS FPS')
+)
+
+REGION_CHOICES = (
+    ('NA', 'North America'),
+    ('EU', 'Europe'),
+    ('AS', 'Asian'),
+    ('OC', 'Oceania'),
+    ('SA', 'South America'),
+    ('SEA', 'South East Asia'),
+    ('KR/JP', 'Korea/Japan')
+)
+ (duplicate-code)
+
+------------------------------------------------------------------
+Your code has been rated at 6.57/10 (previous run: 6.49/10, +0.07)
+
