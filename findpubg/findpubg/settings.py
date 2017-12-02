@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'mptt',
     'haystack',
     'widget_tweaks',
+    'django_jenkins',
 ] + get_machina_apps()
 
 MIDDLEWARE = [
@@ -71,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'findpubg.wsgi.application'
+WSGI_APPLICATION = 'findpubg.wsgi.wsgi_application'
 
 
 # Database

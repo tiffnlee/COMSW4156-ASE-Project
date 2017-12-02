@@ -11,25 +11,25 @@ from findpubg.core.models import Search
 def start(request):
     return render(request, 'start.html')
 
-# @login_required
+@login_required
 def home(request):
     return render(request, 'home.html')
 
 def user_board(request):
-	lst = Search.objects.all()
-	template = loader.get_template('user_board.html')
-	context = {
-		'lst' : lst,
-	}
-	return HttpResponse(template.render(context, request))
+    lst = Search.objects.all()
+    template = loader.get_template('user_board.html')
+    context = {
+        'lst' : lst,
+    }
+    return HttpResponse(template.render(context, request))
 
 def user_page(request, user_id):
     template = loader.get_template('user_page.html')
-    form = Search.objects.get(user_id = user_id)
+    form = Search.objects.get(user_id=user_id)
     form = {
-		'form' : form,
-	}
-    return HttpResponse(template.render(form,request))
+        'form' : form,
+    }
+    return HttpResponse(template.render(form, request))
 
 def search_survey(request):
     if request.method == 'POST':
@@ -46,28 +46,103 @@ def search_survey(request):
     return render(request, 'search.html', {'form': form})
 
 def sort_search_by_date_joined(request):
-	most_recent_joined = Search.objects.order_by('-date_joined')
-	template = loader.get_template('user_board.html')
-	context = {
-		'lst' : most_recent_joined,
-	}
-	return HttpResponse(template.render(context, request))
+    most_recent_joined = Search.objects.order_by('-date_joined')
+    template = loader.get_template('user_board.html')
+    context = {
+        'lst' : most_recent_joined,
+    }
+    return HttpResponse(template.render(context, request))
 
-def sort_by_team_preference(request):
-	ordered_team_preferences = Search.objects.order_by('team_choices')
-	template = loader.get_template('user_board.html')
-	context = {
-		'lst' : ordered_team_preferences,
-	}
-	return HttpResponse(template.render(context, request))
 
-def sort_by_region_preference(request):
-	ordered_region_preferences = Search.objects.order_by('region_choices')
-	template = loader.get_template('user_board.html')
-	context = {
-		'lst' : ordered_region_preferences,
-	}
-	return HttpResponse(template.render(context, request))
+def show_duos(request):
+    duos = Search.objects.filter(team_choices__contains='DUOS')
+    template=loader.get_template('user_board.html')
+    context= {
+ 	'lst' : duos,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def show_squads(request):
+    squads = Search.objects.filter(team_choices__contains='SQUADS')
+    template=loader.get_template('user_board.html')
+    context= {
+   	'lst': squads,
+    }
+    return HttpResponse(template.render(context, request))
+
+def show_squadsfps(request):
+    squadsfps = Search.objects.filter(team_choices__contains='SQUADS FPS')
+    template=loader.get_template('user_board.html')
+    context= {
+	'lst':squadsfps,
+    }
+    return HttpResponse(template.render(context, request))
+
+def show_duosfps(request):
+    duosfps = Search.objects.filter(team_choices__contains='DUOS FPS')
+    template=loader.get_template('user_board.html')
+    context= {
+	'lst':duosfps,
+    }
+    return HttpResponse(template.render(context, request))
+
+def show_eu(request):
+    eu = Search.objects.filter(region_choices__contains='EU')
+    template=loader.get_template('user_board.html')
+    context= {
+	'lst': eu,
+    }
+    return HttpResponse(template.render(context, request))
+  
+def show_as(request):
+    asia = Search.objects.filter(region_choices__contains='AS')
+    template=loader.get_template('user_board.html')
+    context= {
+	'lst':asia,
+    }
+    return HttpResponse(template.render(context, request))
+
+def show_na(request):
+    na = Search.objects.filter(region_choices__contains='NA')
+    template=loader.get_template('user_board.html')
+    context= {
+	'lst':na,
+    }
+    return HttpResponse(template.render(context, request))
+
+def show_oc(request):
+    oc = Search.objects.filter(region_choices__contains='OC')
+    template=loader.get_template('user_board.html')
+    context= {
+	'lst':oc,
+    }
+    return HttpResponse(template.render(context, request))
+
+def show_sa(request):
+    sa = Search.objects.filter(region_choices__contains='SA')
+    template=loader.get_template('user_board.html')
+    context= {
+	'lst':sa,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def show_sea(request):
+    sea = Search.objects.filter(region_choices__contains='SEA')
+    template=loader.get_template('user_board.html')
+    context= {
+	'lst':sea,
+    }
+    return HttpResponse(template.render(context, request))
+
+def show_kr(request):
+    kr = Search.objects.filter(region_choices__contains='KR')
+    template=loader.get_template('user_board.html')
+    context= {
+	'lst':kr,
+    }
+    return HttpResponse(template.render(context, request))
 
 def signup(request):
     if request.method == 'POST':
