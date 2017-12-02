@@ -2,7 +2,7 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-    <button type="button" class="btn btn-outline-secondary"><a href="{% url 'login' %}">login</a></button>
+    <button type="button" class="btn btn-outline-secondary"><a href="{% url 'home' %}">Go To User Home</a></button>
 {% else %}
     <button type="button" class="btn btn-outline-secondary"><a href="{% url 'login' %}">login</a></button>
     <button type="button" class="btn btn-outline-secondary"><a href="{% url 'signup' %}">signup</a></button>

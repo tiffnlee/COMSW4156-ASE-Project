@@ -10,14 +10,14 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = [
-    url(r'^$', core_views.home, name='home'),
+    url(r'^$', core_views.start, name='start'),
     url(r'^(?P<user_id>[a-zA-Z0-9_]+)/user_page/$', core_views.user_page, name='user_page'),
     url(r'^user_board/$', core_views.user_board, name='user_board'),
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': 'login'}, name='logout'),
     url(r'^signup/$', core_views.signup, name='signup'),
     url(r'^search/$', core_views.search_survey, name='search'),
-    url(r'^start/$', core_views.start, name='start'),
+    url(r'^home/$', core_views.home, name='home'),
 	url(r'^user_board/sort_by_date_joined/$', core_views.sort_search_by_date_joined, name='sort_by_date_joined'),
 	url(r'^user_board/sort_by_region_preference/$', core_views.sort_by_region_preference, name='sort_by_region_preference'),
 	url(r'^admin/', include(admin.site.urls)),
