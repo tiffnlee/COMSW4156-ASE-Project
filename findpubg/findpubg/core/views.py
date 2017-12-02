@@ -34,7 +34,11 @@ def user_page(request, user_id):
 def search_survey(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
-        if form.is_valid():
+        if (form.is_valid() and request.user.is_authenticated()):
+            search_obj = form.save(False)
+            search_obj.user_id = request.user
+            if(Search.objects.filter(user_id=search_obj.user_id)):
+                old_entries = Search.objects.filter(user_id = search_obj.user_id).delete()
             form.save()
             return redirect('user_board')
     else:
