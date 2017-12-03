@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from machina.app import board
 
 from findpubg.core import views as core_views
-
+from django.views.generic import RedirectView
 from django.contrib import admin
 admin.autodiscover()
 
@@ -33,4 +33,5 @@ urlpatterns = [
     url(r'^user_board/show_kr/$', core_views.show_kr, name='show_kr'),
     # Apps
     url(r'^forum/', include(board.urls)),
+    url(r'^forum/$', RedirectView.as_view(url='http://127.0.0.1:8000/forum/'), name='forum'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
