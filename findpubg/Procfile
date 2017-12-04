@@ -1,0 +1,2 @@
+web: gunicorn findpubg.wsgi:wsgi_application --log-file -
+

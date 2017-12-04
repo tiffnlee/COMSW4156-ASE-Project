@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from machina.app import board
 
 from findpubg.core import views as core_views
-
+from django.views.generic import RedirectView
 from django.contrib import admin
 admin.autodiscover()
 
@@ -19,10 +19,7 @@ urlpatterns = [
     url(r'^search/$', core_views.search_survey, name='search'),
     url(r'^home/$', core_views.home, name='home'),
 	url(r'^user_board/sort_by_date_joined/$', core_views.sort_search_by_date_joined, name='sort_by_date_joined'),
-#	url(r'^user_board/sort_by_region_preference/$', core_views.sort_by_region_preference, name='sort_by_region_preference'),
 	url(r'^admin/', include(admin.site.urls)),
-#	url(r'^user_board/sort_by_team_preference/$', core_views.sort_by_team_preference, name='sort_by_team_preference'),
-    url(r'^admin/', include(admin.site.urls)),
     url(r'^user_board/show_duos/$', core_views.show_duos, name='show_duos'),
     url(r'^user_board/show_squads/$', core_views.show_squads, name='show_squads'),
     url(r'^user_board/show_duosfps/$', core_views.show_duosfps, name='show_duosfps'),
@@ -36,4 +33,5 @@ urlpatterns = [
     url(r'^user_board/show_kr/$', core_views.show_kr, name='show_kr'),
     # Apps
     url(r'^forum/', include(board.urls)),
+    url(r'^forum/$', RedirectView.as_view(url='http://127.0.0.1:8000/forum/'), name='forum'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

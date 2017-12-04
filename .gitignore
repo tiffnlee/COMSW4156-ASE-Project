@@ -3,3 +3,6 @@
 *~
 .idea/
 findpubg/db.sqlite3
+venv
+staticfiles
+.env
