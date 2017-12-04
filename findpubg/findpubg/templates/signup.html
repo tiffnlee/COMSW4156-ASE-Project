@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static %}
+
+<body background="{% static 'image/backpack.jpg' %}">
   <h2>Sign up</h2>
   <form method="post">
     {% csrf_token %}
@@ -18,4 +21,5 @@
     {% endfor %}
     <button type="submit" class="btn btn-outline-secondary">Sign up</button>
   </form>
+</body>
 {% endblock %}

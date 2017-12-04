@@ -58,7 +58,7 @@ def show_duos(request):
     duos = Search.objects.filter(team_choices__contains='DUOS')
     template=loader.get_template('user_board.html')
     context= {
- 	'lst' : duos,
+ 	      'lst' : duos,
     }
     return HttpResponse(template.render(context, request))
 
@@ -67,7 +67,7 @@ def show_squads(request):
     squads = Search.objects.filter(team_choices__contains='SQUADS')
     template=loader.get_template('user_board.html')
     context= {
-   	'lst': squads,
+   	        'lst': squads,
     }
     return HttpResponse(template.render(context, request))
 
@@ -75,7 +75,7 @@ def show_squadsfps(request):
     squadsfps = Search.objects.filter(team_choices__contains='SQUADS FPS')
     template=loader.get_template('user_board.html')
     context= {
-	'lst':squadsfps,
+	       'lst':squadsfps,
     }
     return HttpResponse(template.render(context, request))
 
@@ -83,7 +83,7 @@ def show_duosfps(request):
     duosfps = Search.objects.filter(team_choices__contains='DUOS FPS')
     template=loader.get_template('user_board.html')
     context= {
-	'lst':duosfps,
+	       'lst':duosfps,
     }
     return HttpResponse(template.render(context, request))
 
@@ -91,15 +91,15 @@ def show_eu(request):
     eu = Search.objects.filter(region_choices__contains='EU')
     template=loader.get_template('user_board.html')
     context= {
-	'lst': eu,
+	       'lst': eu,
     }
     return HttpResponse(template.render(context, request))
-  
+
 def show_as(request):
     asia = Search.objects.filter(region_choices__contains='AS')
     template=loader.get_template('user_board.html')
     context= {
-	'lst':asia,
+	       'lst':asia,
     }
     return HttpResponse(template.render(context, request))
 
@@ -107,7 +107,7 @@ def show_na(request):
     na = Search.objects.filter(region_choices__contains='NA')
     template=loader.get_template('user_board.html')
     context= {
-	'lst':na,
+	       'lst':na,
     }
     return HttpResponse(template.render(context, request))
 
@@ -115,7 +115,7 @@ def show_oc(request):
     oc = Search.objects.filter(region_choices__contains='OC')
     template=loader.get_template('user_board.html')
     context= {
-	'lst':oc,
+	       'lst':oc,
     }
     return HttpResponse(template.render(context, request))
 
@@ -123,7 +123,7 @@ def show_sa(request):
     sa = Search.objects.filter(region_choices__contains='SA')
     template=loader.get_template('user_board.html')
     context= {
-	'lst':sa,
+	       'lst':sa,
     }
     return HttpResponse(template.render(context, request))
 
@@ -132,7 +132,7 @@ def show_sea(request):
     sea = Search.objects.filter(region_choices__contains='SEA')
     template=loader.get_template('user_board.html')
     context= {
-	'lst':sea,
+	       'lst':sea,
     }
     return HttpResponse(template.render(context, request))
 
@@ -140,7 +140,7 @@ def show_kr(request):
     kr = Search.objects.filter(region_choices__contains='KR')
     template=loader.get_template('user_board.html')
     context= {
-	'lst':kr,
+	       'lst':kr,
     }
     return HttpResponse(template.render(context, request))
 
