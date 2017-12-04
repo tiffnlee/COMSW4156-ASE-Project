@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	{% if user.username != "" %}
-	  <h2>Welcome, {{ user.username }}!</h2>
-	{% else %}
-  	   <h2> Welcome! Please sign in or make a new account</h2>
-	   <a href="/login">Login for existing users </a> <br>
-	   <a href="/signup">Signup for new users </a>
-	{% endif %}
-  <p><a href=../search>Post in the search board!</a></p>
+{% load static %}
+<body background="{% static 'image/backpack.jpg' %}">
+	<div class="col-lg-7 mx-auto bk padded">
+			{% if user.username != "" %}
+			  <h2>Welcome, {{ user.username }}!</h2>
+			{% else %}
+		  	   <h2> Welcome! Please sign in or make a new account</h2>
+			   <a href="/login">Login for existing users </a> <br>
+			   <a href="/signup">Signup for new users </a>
+			{% endif %}
+		  <p><a href=../search>Post in the search board!</a></p>
+	</div>
+</body>
 {% endblock %}
