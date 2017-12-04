@@ -2,3 +2,4 @@
 *.pyc
 *~
 .idea/
+findpubg/db.sqlite3
