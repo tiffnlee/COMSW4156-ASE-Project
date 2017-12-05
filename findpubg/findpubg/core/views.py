@@ -13,11 +13,14 @@ def start(request):
 
 @login_required
 def home(request):
-    info = Search.objects.get(user_id = request.user)
-    context = {
-        'info' : info
-    }
-    return render(request, 'home.html', {'info': info})
+    try:
+        info = Search.objects.get(user_id = request.user)
+        context = {
+            'info' : info
+        }
+        return render(request, 'home.html', {'info': info})
+    except Search.DoesNotExist:
+        return render(request, 'home.html')
 
 def user_board(request):
     lst = Search.objects.all()
