@@ -5,7 +5,12 @@
 <body background="{% static 'image/backpack.jpg' %}">
 	<div class="col-lg-7 mx-auto bk padded">
 			{% if user.username != "" %}
-			  <h2>Welcome, {{ user.username }}!</h2>
+                <h2>Welcome, {{ user.username }}!</h2>
+                {% if info %}
+                    <h3> Steam Id: {{ info.steam_id }} </h3>
+                    <h3> Region Preferences: {{ info.region_choices }} </h3>
+                    <h3> Team Preferences: {{ info.team_choices }} </h3>
+                {% endif %}
 			{% else %}
 		  	   <h2> Welcome! Please sign in or make a new account</h2>
 			   <a href="/login">Login for existing users </a> <br>
