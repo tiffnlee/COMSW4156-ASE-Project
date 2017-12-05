@@ -151,6 +151,14 @@ def show_kr(request):
     }
     return HttpResponse(template.render(context, request))
 
+def sort_rank(request):
+    r = Search.objects.order_by('rank')
+    template = loader.get_template('user_board.html')
+    context= {
+		'lst':r,
+    }
+    return HttpResponse(template.render(context, request))
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)

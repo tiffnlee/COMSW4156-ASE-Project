@@ -26,7 +26,7 @@ REGION_CHOICES = (
 class Search(models.Model):
     user_id = models.CharField(max_length=20)
     steam_id = models.CharField(max_length=20)
-    rank= models.IntegerField('rank', default=0)
+    rank= models.IntegerField('rank')
     team_choices = models.CharField('team preference', max_length=10, choices=TEAM_CHOICES)
     region_choices = models.CharField('region preference', max_length=5, choices=REGION_CHOICES)
     email = models.CharField(max_length=40)

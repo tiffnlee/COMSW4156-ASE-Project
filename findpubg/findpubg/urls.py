@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^user_board/show_sa/$', core_views.show_sa, name='show_sa'),
     url(r'^user_board/show_sea/$', core_views.show_sea, name='show_sea'),
     url(r'^user_board/show_kr/$', core_views.show_kr, name='show_kr'),
+    url(r'^user_board/sort_rank/$', core_views.sort_rank, name='sort_rank'),
     # Apps
     url(r'^forum/', include(board.urls)),
     url(r'^forum/$', RedirectView.as_view(url='http://127.0.0.1:8000/forum/'), name='forum'),
