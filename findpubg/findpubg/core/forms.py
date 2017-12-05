@@ -6,12 +6,6 @@ from findpubg.core.models import TEAM_CHOICES, REGION_CHOICES
 import django_filters
 from django_filters import filters
 
-filters.LOOKUP_TYPES = [
-    ('DUOS', 'DUOS'),
-    ('SQUADS', 'SQUADS'),
-    ('DUOS FPS', 'DUOS FPS'),
-    ('SQUADS FPS', 'SQUADS FPS'),
-]
 
 class SignUpForm(UserCreationForm):
     birth_date = forms.DateField(help_text='Required. Format: YYYY-MM-DD')
@@ -23,7 +17,7 @@ class SignUpForm(UserCreationForm):
 class SearchForm(forms.ModelForm):
     class Meta:
         model = Search
-        fields = ('steam_id', 'team_choices', 'region_choices', 'email',)
+        fields = ('steam_id', 'team_choices', 'region_choices', 'email', 'rank')
 
 class FilterUser(django_filters.FilterSet):
     class Meta:

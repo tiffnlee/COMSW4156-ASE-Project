@@ -26,22 +26,20 @@ REGION_CHOICES = (
 class Search(models.Model):
     user_id = models.CharField(max_length=20)
     steam_id = models.CharField(max_length=20)
-    rank= models.IntegerField('rank')
+    rank= models.IntegerField('rank', default=0)
     team_choices = models.CharField('team preference', max_length=10, choices=TEAM_CHOICES)
     region_choices = models.CharField('region preference', max_length=5, choices=REGION_CHOICES)
     email = models.CharField(max_length=40)
     has_profile = models.BooleanField(default=False)
     date_joined = models.DateTimeField('date joined', default=timezone.now)
 
-    def __str__(self):              # __unicode__ on Python 2
-        return self.region_choices
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=500, blank=True)
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
-#    rank = models.IntegerField(default=0)
+   # rank = models.IntegerField(default=0)
 
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):

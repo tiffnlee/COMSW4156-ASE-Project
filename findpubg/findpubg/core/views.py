@@ -24,14 +24,6 @@ def home(request):
     except Search.DoesNotExist:
         return render(request, 'home.html')
 
-# def user_board(request):
-#     lst = Search.objects.all()
-#     template = loader.get_template('user_board.html')
-#     context = {
-#         'lst' : lst,
-#     }
-#     return HttpResponse(template.render(context, request))
-
 def user_board(request):
     lst = Search.objects.all()
     user_filter = FilterUser(request.GET, queryset=lst)
