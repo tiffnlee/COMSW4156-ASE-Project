@@ -25,9 +25,9 @@ class SignUpForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'birth_date', 'password1', 'password2', )
+        fields = ('username', 'birth_date', 'password1', 'password2')
 
 class SearchForm(forms.ModelForm):
     class Meta:
         model = Search
-        fields = ('steam_id', 'team_choices', 'region_choices', 'email',)
+        fields = ('steam_id', 'team_choices', 'region_choices', 'email', 'rank')
