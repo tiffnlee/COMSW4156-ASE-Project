@@ -20,6 +20,10 @@ class SearchForm(forms.ModelForm):
         fields = ('steam_id', 'team_choices', 'region_choices', 'email', 'rank')
 
 class FilterUser(django_filters.FilterSet):
+    rank = django_filters.NumberFilter(name='rank')
+    # rank__gt = django_filters.NumberFilter(name='rank', lookup_expr='search__rank__gt')
+    # rank__lt = django_filters.NumberFilter(name='rank', lookup_expr='rank__lt')
+
     class Meta:
         model = Search
-        fields = ('steam_id', 'team_choices', 'region_choices',)
+        fields = ('steam_id', 'team_choices', 'region_choices','rank')
