@@ -15,7 +15,14 @@ def start(request):
 
 @login_required
 def home(request):
-    return render(request, 'home.html')
+    try:
+        info = Search.objects.get(user_id = request.user)
+        context = {
+            'info' : info
+        }
+        return render(request, 'home.html', {'info': info})
+    except Search.DoesNotExist:
+        return render(request, 'home.html')
 
 # def user_board(request):
 #     lst = Search.objects.all()
@@ -148,6 +155,14 @@ def show_kr(request):
     template=loader.get_template('user_board.html')
     context= {
 	       'lst':kr,
+    }
+    return HttpResponse(template.render(context, request))
+
+def sort_rank(request):
+    r = Search.objects.order_by('rank')
+    template = loader.get_template('user_board.html')
+    context= {
+		'lst':r,
     }
     return HttpResponse(template.render(context, request))
 
