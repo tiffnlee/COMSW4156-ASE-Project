@@ -16,7 +16,7 @@ TEAM_CHOICES = (
 REGION_CHOICES = (
     ('NA', 'North America'),
     ('EU', 'Europe'),
-    ('AS', 'Asian'),
+    ('AS', 'Asia'),
     ('OC', 'Oceania'),
     ('SA', 'South America'),
     ('SEA', 'South East Asia'),
@@ -32,6 +32,9 @@ class Search(models.Model):
     email = models.CharField(max_length=40)
     has_profile = models.BooleanField(default=False)
     date_joined = models.DateTimeField('date joined', default=timezone.now)
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.region_choices
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

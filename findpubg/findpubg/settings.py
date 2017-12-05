@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django_jenkins',
     'whitenoise',
-    'dj_database_url'
+    'dj_database_url',
+    'django_filters',
 ] + get_machina_apps()
 
 MIDDLEWARE = [

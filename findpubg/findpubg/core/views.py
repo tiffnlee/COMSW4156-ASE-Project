@@ -6,7 +6,9 @@ from django.http import HttpResponse
 
 from findpubg.core.forms import SignUpForm
 from findpubg.core.forms import SearchForm
+from findpubg.core.forms import FilterUser
 from findpubg.core.models import Search
+
 
 def start(request):
     return render(request, 'start.html')
@@ -15,13 +17,18 @@ def start(request):
 def home(request):
     return render(request, 'home.html')
 
+# def user_board(request):
+#     lst = Search.objects.all()
+#     template = loader.get_template('user_board.html')
+#     context = {
+#         'lst' : lst,
+#     }
+#     return HttpResponse(template.render(context, request))
+
 def user_board(request):
     lst = Search.objects.all()
-    template = loader.get_template('user_board.html')
-    context = {
-        'lst' : lst,
-    }
-    return HttpResponse(template.render(context, request))
+    user_filter = FilterUser(request.GET, queryset=lst)
+    return render(request, 'user_board.html', {'filter': user_filter})
 
 def user_page(request, user_id):
     template = loader.get_template('user_page.html')
