@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'whitenoise',
     'dj_database_url',
     'django_filters',
-] + get_machina_apps()
+] + get_machina_apps([
+    'findpubg.app.forum_conversation',
+    'findpubg.app.forum_member',
+])
 
 # MIGRATION CONFIGURATION
 # ------------------------------------------------------------------------------
