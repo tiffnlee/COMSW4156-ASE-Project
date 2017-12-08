@@ -1,0 +1,25 @@
+{% extends 'board_base.html' %}
+
+{% block content %}
+{% load static %}
+
+<body background="{% static 'image/bridge.jpg' %}">
+	<div class="card">
+		<div class="card-block">
+		  <h2 class="card-title" style="color:black;"> {{form.user_id}} </h2>
+		  <p class="card-text" style="color:gray;">
+			  <b>Steam ID:</b>
+			  {{form.steam_id}} <br>
+			  <b>Email:</b>
+			  {{form.email}} <br>
+			  <b>Team Preference:</b>
+			  {{form.team_choices}} <br>
+			  <b>Team Region:</b>
+      	{{form.region_choices}} <br>
+			  <b>Rank:</b>
+			  {{form.rank}} <br>
+		  </p>
+		</div>
+	</div>
+</body>
+{% endblock %}

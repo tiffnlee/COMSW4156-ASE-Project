@@ -39,6 +39,15 @@ INSTALLED_APPS = [
     'django_filters',
 ] + get_machina_apps()
 
+# MIGRATION CONFIGURATION
+# ------------------------------------------------------------------------------
+
+MIGRATION_MODULES = {
+    'forum_conversation': 'machina.apps.forum_conversation.migrations',
+    'forum_member': 'machina.apps.forum_member.migrations',
+}
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,9 +64,11 @@ ROOT_URLCONF = 'findpubg.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'findpubg/templates'),
-            MACHINA_MAIN_TEMPLATE_DIR,],
+        'DIRS': (
+            # PROJECT_PATH.child('findpubg', 'templates0'),
+            os.path.join(BASE_DIR, 'findpubg/templates0'),
+            MACHINA_MAIN_TEMPLATE_DIR,
+        ),
         #'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,0 +1,111 @@
+{% extends "machina/board_base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load forum_permission_tags %}
+
+{% block css %}
+{{ block.super }}
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!-- Custom fonts for this template -->
+    <!-- <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+    <style>
+        p{
+            font-family:Cabin,'Helvetica Neue',Helvetica,Arial,sans-serif;
+            font-size:16px;
+            line-height:1.5;
+            margin:0 0 25px
+        }
+
+        a{
+            font-family:Cabin,'Helvetica Neue',Helvetica,Arial,sans-serif;
+            -webkit-transition:all .2s ease-in-out;
+            -moz-transition:all .2s ease-in-out;
+            transition:all .2s ease-in-out;
+            color:#F0AD14
+        }
+
+        .Adiv {
+            border: 4px solid #000;
+            background-color: #000;
+            opacity: 0.80;
+            filter: alpha(opacity=10);
+        }
+
+        .bk {
+           background: rgba(0, 0, 0, 0.6);
+           margin: 2cm 0cm 2cm 0cm;
+        }
+
+        .padded {
+          padding: 20px 20px 20px 20px;
+        }
+    </style>
+{% endblock css %}
+
+{% block body %}
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="{% url 'home' %}">Find PUBG</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+              {% if user.is_authenticated %}
+                  <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="{% url 'home' %}">Profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="{% url 'search' %}">Edit my Info</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="{% url 'user_board' %}">User Board</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="{% url 'forum' %}">Discussion Board</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">Logout</a>
+                  </li>
+              {% else %}
+                  <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="{% url 'user_board' %}">User Board</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="{% url 'forum' %}">Discussion Board</a>
+                  </li>
+              {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header class="masthead">
+      <div class="intro-body">
+        <!-- <div class="container"> -->
+          <div class="row">
+              <div class="col-lg-10 mx-auto">
+                  {% block content %}
+                  {% endblock %}
+              </div>
+          </div>
+        <!-- </div> -->
+      </div>
+    </header>
+{% endblock body %}
+
+{% block js %}
+{{ block.super }}
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="{% static 'js/dropdown.js' %}"></script>
+{% endblock js %}

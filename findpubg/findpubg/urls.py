@@ -9,6 +9,7 @@ from django.views.generic import RedirectView
 from django.contrib import admin
 admin.autodiscover()
 
+
 urlpatterns = [
     url(r'^$', core_views.start, name='start'),
     url(r'^(?P<user_id>[a-zA-Z0-9_]+)/user_page/$', core_views.user_page, name='user_page'),

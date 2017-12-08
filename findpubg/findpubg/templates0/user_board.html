@@ -1,0 +1,37 @@
+{% extends 'board_base.html' %}
+
+{% block content %}
+<div class="col-lg-12 mx-auto bk padded">
+  <h1>User Board</h1>
+  <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit" class="btn btn-outline-secondary">Search</button>
+    <button class="btn btn-outline-secondary"><a style="color:lightgray;" href="{% url 'user_board' %}">Reset</a></button>
+  </form>
+
+  {% if filter.qs %}
+		<div class="card-deck">
+			{% for user in filter.qs %}
+			<div class="col-sm-12 col-md-4 col-lg-6 mt-4">
+				<div class="tr card">
+				    <div class="card-block">
+				      <a class="card-title" href="/{{ user.user_id }}/user_page"> User: {{user.user_id}} </a> <br>
+				      <p class="card-text" style="color:gray;">
+						  <b>Team Preference:</b>
+						  {{user.team_choices}} <br>
+						  <b>Team Region:</b>
+						  {{user.region_choices}} <br>
+						  <b>Rank:</b>
+						  {{user.rank}} <br>
+					  </p>
+				    </div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		{% else %}
+    <p></p>
+			<h3 style="color:red;"> No User Data Available </h3>
+	{% endif %}
+</div>
+{% endblock %}
