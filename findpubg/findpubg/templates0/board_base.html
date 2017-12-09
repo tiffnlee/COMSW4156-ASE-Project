@@ -18,13 +18,14 @@
     <style>
         p{
             font-family:Cabin,'Helvetica Neue',Helvetica,Arial,sans-serif;
-            font-size:16px;
+            font-size:14px;
             line-height:1.5;
             margin:0 0 25px
         }
 
         a{
             font-family:Cabin,'Helvetica Neue',Helvetica,Arial,sans-serif;
+            font-size:14px;
             -webkit-transition:all .2s ease-in-out;
             -moz-transition:all .2s ease-in-out;
             transition:all .2s ease-in-out;
@@ -35,7 +36,6 @@
             border: 4px solid #000;
             background-color: #000;
             opacity: 0.80;
-            filter: alpha(opacity=10);
         }
 
         .bk {
@@ -46,6 +46,10 @@
         .padded {
           padding: 20px 20px 20px 20px;
         }
+
+        .panel-default {
+            background-color: #000;
+        }
     </style>
 {% endblock css %}
 
@@ -53,10 +57,9 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="{% url 'home' %}">Find PUBG</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
+        <a class="navbar-brand js-scroll-trigger" href="{% url 'home' %}" style="font-size:20px">Find PUBG</a>
+        <button class="navbar-toggler navbar-toggler-right btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+           Menu
         </button>
         <div class="collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">

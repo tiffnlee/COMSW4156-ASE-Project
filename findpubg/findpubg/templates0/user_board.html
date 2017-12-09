@@ -5,8 +5,8 @@
   <h1>User Board</h1>
   <form method="get">
     {{ filter.form.as_p }}
-    <button type="submit" class="btn btn-outline-secondary">Search</button>
-    <button class="btn btn-outline-secondary"><a style="color:lightgray;" href="{% url 'user_board' %}">Reset</a></button>
+    <button type="submit" class="btn btn-outline-secondary" >Search</button>
+    <button class="btn btn-outline-secondary"><a style="color:lightgray;font-size:10px" href="{% url 'user_board' %}">Reset</a></button>
   </form>
 
   {% if filter.qs %}
@@ -15,7 +15,7 @@
 			<div class="col-sm-12 col-md-4 col-lg-6 mt-4">
 				<div class="tr card">
 				    <div class="card-block">
-				      <a class="card-title" href="/{{ user.user_id }}/user_page"> User: {{user.user_id}} </a> <br>
+				      <a class="card-title" style="font-size:16px" href="/{{ user.user_id }}/user_page"> User: {{user.user_id}} </a> <br>
 				      <p class="card-text" style="color:gray;">
 						  <b>Team Preference:</b>
 						  {{user.team_choices}} <br>
