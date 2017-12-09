@@ -75,6 +75,7 @@ class FiltrationTest(TestCase):
 	s = forms.FilterUser({'steam_id': 'a steam id that doesnt exist'})
 	self.assertFalse(s.qs.exists())
 
+
 class RegistrationFormTests(TestCase):
     def test_registration_form(self):
         invalid_data_dicts = [
@@ -115,21 +116,27 @@ class RegistrationFormTests(TestCase):
             'error':
             ('password2', [u"The two password fields didn't match."])
             },
+	    {
+	    'data':
+ 	    { 'username': 'foo',
+	      'birth_date': '1997-08-10',
+	      'password1': '123456789',
+	      'password2': '123456789' },
+	    'error':
+	    ('password1', [u"The password is entirely numeric."])
+	    },
+
         ]
         for invalid_dict in invalid_data_dicts:
             form = forms.SignUpForm(data=invalid_dict['data'])
             self.failIf(form.is_valid())
             #self.assertEqual(form.errors[invalid_dict['error'][0]], invalid_dict['error'][1])
 
-            form = forms.SignUpForm(data={'username': 'foo',
+        form = forms.SignUpForm(data={'username': 'foo',
                                        'birth_date': '1996-09-11',
-                                       'password1': 'foo',
-                                       'password2': 'foo' })
-        self.assertFalse(form.is_valid())
-
-
-
-
+                                       'password1': 'foo123456',
+                                       'password2': 'foo123456' })
+        self.failUnless(form.is_valid())
 
 class SearchFormTest(TestCase):
     def test_SearchForm_valid(self):
@@ -146,7 +153,4 @@ class SearchFormTest(TestCase):
     def test_SearchForm_rank_invalid(self):
         form1 = SearchForm(data={'user_id': "sampleuser", 'steam_id': "sampleid", 'team_choices': "DUOS", 'region_choices': "SEA",'email': "test@test.com", 'rank': 'max_int'})
 	self.assertFalse(form1.is_valid())
-
-
-
-
+	
