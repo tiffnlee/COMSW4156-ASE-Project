@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'whitenoise',
     'dj_database_url',
     'django_filters',
+    'django_nose',
 ] + get_machina_apps([
     'findpubg.app.forum_conversation',
     'findpubg.app.forum_member',
@@ -148,6 +149,15 @@ HAYSTACK_CONNECTIONS = {
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = 'home'
+
+# Use nose to run all tests
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+# Tell nose to measure coverage on the 'foo' and 'bar' apps
+NOSE_ARGS = [
+     '--with-coverage',
+     '--cover-package=findpubg.core, machina',
+]
+
 
 #Machina Configurations
 
